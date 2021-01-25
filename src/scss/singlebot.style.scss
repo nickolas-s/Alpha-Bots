@@ -1,0 +1,29 @@
+@import "config";
+
+.bot {
+  .img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .specs-container {
+    h2 {
+      color: $accent-color;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    ul {
+      li {
+        list-style: none;
+        padding: 5px 0;
+        font-size: 12px;
+
+        .bot-spec {
+          color: $paragraph;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "./scss/config";
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-stack;
+  background-color: $background-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: $website-width;
+  margin: 0 auto;
+}

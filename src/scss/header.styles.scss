@@ -1,0 +1,44 @@
+@import "config";
+
+header {
+  font-size: calc(10px + 2vmin);
+  color: $headline;
+  margin-top: 10px;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-size: calc(20px + 4vmin);
+    font-family: $title-font;
+
+    .logo {
+      height: 10vh;
+      margin: 0 15px;
+    }
+  }
+
+  nav {
+    border-top: 1px solid $accent-color;
+    border-bottom: 1px solid $accent-color;
+
+    .options-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 5px 0;
+      max-width: $website-width;
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+      transition: all 500ms;
+
+      &:hover {
+        color: #94a1b2;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from './componets/Header';
-import DashboardPage from './componets/DashboardPage';
-import TasksPage from './componets/TasksPage';
-import BotsPage from './componets/BotsPage';
+import Header from './components/Header';
+import DashboardPage from './components/DashboardPage';
+import TasksPage from './components/TasksPage';
+import BotsPage from './components/BotsPage';
 
 class App extends React.Component {
   constructor(props) {

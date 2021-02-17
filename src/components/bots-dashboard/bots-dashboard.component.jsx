@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SingleBot from './SingleBot';
-import '../scss/botsdashboard.styles.scss';
+import SingleBot from '../single-bot/single-bot.component';
+import './bots-dashboard.styles.scss';
 
 const BotsDashboard = ({ currentBots }) => (
   <div className="bots-dash">

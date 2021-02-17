@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
-import '../scss/header.styles.scss';
-import { ReactComponent as Logo } from '../assets/robot-svgrepo-color.svg';
+import '../../App.css';
+import './header.styles.scss';
+import { ReactComponent as Logo } from '../../assets/robot-svgrepo-color.svg';
 
 const Header = () => (
   <header>

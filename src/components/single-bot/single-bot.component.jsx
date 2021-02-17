@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../scss/singlebot.style.scss';
+import './single-bot.style.scss';
 
 const SingleBot = ({
   manufacturer,

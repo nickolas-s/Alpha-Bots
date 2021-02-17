@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CustomButton from './CustomButton';
-import '../scss/tasks-page.style.scss';
+import CustomButton from '../../components/custom-button/custom-button.component';
+import './tasks-page.style.scss';
 
 class TasksPage extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../scss/custom-button.styles.scss';
+import './custom-button.styles.scss';
 
 const CustomButton = ({ children, type, big, onClick }) => (
   <button

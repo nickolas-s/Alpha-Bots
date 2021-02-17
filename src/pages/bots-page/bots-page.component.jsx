@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CustomButton from './CustomButton';
-import SingleBot from './SingleBot';
-import '../scss/bots-page.styles.scss';
+import CustomButton from '../../components/custom-button/custom-button.component';
+import SingleBot from '../../components/single-bot/single-bot.component';
+import './bots-page.styles.scss';
 
 class BotsPage extends React.Component {
   constructor(props) {

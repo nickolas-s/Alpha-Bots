@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TaskDashboard from './TaskDashboard';
-import BotsDashboard from './BotsDashboard';
-import Hero from './Hero';
+import TaskDashboard from '../../components/tasks-dashbaord/tasks-dashboard.component';
+import BotsDashboard from '../../components/bots-dashboard/bots-dashboard.component';
+import Hero from '../../components/hero/hero.component';
 
 const DashboardPage = ({ currentTasks, toggleCheck, currentBots, success }) => (
   <div>

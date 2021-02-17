@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../scss/taskdashboard.styles.scss';
+import './tasks-dashboard.styles.scss';
 
 const TaskDashboard = ({ currentTasks, toggleCheck }) => (
   <div className="tasks-dash">

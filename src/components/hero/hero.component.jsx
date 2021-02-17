@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import CustomButton from './CustomButton';
-import '../scss/hero.styles.scss';
-import '../scss/percentage-circle.styles.scss';
+import CustomButton from '../custom-button/custom-button.component';
+import './hero.styles.scss';
+import './percentage-circle.styles.scss';
 
 const Hero = ({ success }) => (
   <div className="hero">

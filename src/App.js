@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from './components/Header';
-import DashboardPage from './components/DashboardPage';
-import TasksPage from './components/TasksPage';
-import BotsPage from './components/BotsPage';
+import Header from './components/header/header.component';
+import DashboardPage from './pages/dashboard-page/dashboard-page.component';
+import TasksPage from './pages/tasks-page/tasks-page.component';
+import BotsPage from './pages/bots-page/bots-page.component';
 import { calculateSuccess } from './utils/utils';
 import { tasksSample, botsSamples } from './utils/samples';
 

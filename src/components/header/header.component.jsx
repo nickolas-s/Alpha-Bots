@@ -1,26 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
-import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/robot-svgrepo-color.svg';
 
+import {
+  HeaderConainer,
+  LogoContainer,
+  Navbar,
+  LinksContainer,
+} from './header.styles';
+
 const Header = () => (
-  <header>
-    <div className="logo-container">
+  <HeaderConainer>
+    <LogoContainer>
       Alpha
       <span>
         <Logo className="logo" />
       </span>
       Bots!
-    </div>
-    <nav className="options">
-      <div className="options-wrapper">
+    </LogoContainer>
+    <Navbar>
+      <LinksContainer>
         <Link to="/">Dashboard</Link>
         <Link to="/tasks">Tasks</Link>
         <Link to="/robots">Bots</Link>
-      </div>
-    </nav>
-  </header>
+      </LinksContainer>
+    </Navbar>
+  </HeaderConainer>
 );
 
 export default Header;

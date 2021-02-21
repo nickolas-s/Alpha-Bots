@@ -7,6 +7,8 @@ import BotsPage from './pages/bots-page/bots-page.component';
 import { calculateSuccess } from './utils/utils';
 import { tasksSample, botsSamples } from './utils/samples';
 
+import GlobalStyle from './styles-config/globalStyles';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -77,7 +79,8 @@ class App extends React.Component {
     const success = this.percentage();
 
     return (
-      <div className="App">
+      <>
+        <GlobalStyle />
         <Header />
         <div className="wrapper">
           <Switch>
@@ -105,7 +108,7 @@ class App extends React.Component {
             </Route>
           </Switch>
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './single-bot.style.scss';
+
+import {
+  SingleBotConainer,
+  ImageContainer,
+  SpecsContainer,
+  BotSpec,
+} from './single-bot.style';
 
 const SingleBot = ({
   manufacturer,
@@ -10,35 +16,36 @@ const SingleBot = ({
   serial,
   location,
   specialty,
+  botOnDashboard,
 }) => (
-  <div className="bot">
-    <div className="img-container">
+  <SingleBotConainer botOnDashboard={!!botOnDashboard}>
+    <ImageContainer>
       <img
         src={`https://avatars.dicebear.com/api/bottts/${manufacturer}-${id}.svg?width=150`}
         alt={botcode}
       />
-    </div>
+    </ImageContainer>
 
-    <div className="specs-container">
+    <SpecsContainer botOnDashboard={!!botOnDashboard}>
       <h2>
         {botname}-{botcode}
       </h2>
       <ul>
         <li>
-          <span className="bot-spec">Specialty:</span> {specialty}
+          <BotSpec>Specialty:</BotSpec> {specialty}
         </li>
         <li className="no-dashboard">
-          <span className="bot-spec">Serial #:</span> {serial}
+          <BotSpec>Serial #:</BotSpec> {serial}
         </li>
         <li className="no-dashboard">
-          <span className="bot-spec">Manufacturer:</span> {manufacturer}
+          <BotSpec>Manufacturer:</BotSpec> {manufacturer}
         </li>
         <li className="no-dashboard">
-          <span className="bot-spec">Location:</span> {location}
+          <BotSpec>Location:</BotSpec> {location}
         </li>
       </ul>
-    </div>
-  </div>
+    </SpecsContainer>
+  </SingleBotConainer>
 );
 
 SingleBot.propTypes = {
@@ -49,6 +56,7 @@ SingleBot.propTypes = {
   serial: PropTypes.string,
   location: PropTypes.string,
   specialty: PropTypes.string,
+  botOnDashboard: PropTypes.bool,
 };
 
 export default SingleBot;

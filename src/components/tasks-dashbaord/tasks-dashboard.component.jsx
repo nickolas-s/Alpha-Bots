@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './tasks-dashboard.styles.scss';
+
+import {
+  TaskDashboardConainer,
+  TaskListContainer,
+} from './tasks-dashboard.styles';
 
 const TaskDashboard = ({ currentTasks, toggleCheck }) => (
-  <div className="tasks-dash">
+  <TaskDashboardConainer>
     <h2>Tasks</h2>
-    <div className="list-container">
+    <TaskListContainer>
       <ul>
         {currentTasks.map((task, index) => (
           <li key={index}>
@@ -19,8 +23,8 @@ const TaskDashboard = ({ currentTasks, toggleCheck }) => (
           </li>
         ))}
       </ul>
-    </div>
-  </div>
+    </TaskListContainer>
+  </TaskDashboardConainer>
 );
 
 TaskDashboard.propTypes = {

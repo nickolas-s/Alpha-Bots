@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SingleBot from '../single-bot/single-bot.component';
-import './bots-dashboard.styles.scss';
+
+import {
+  BotsDashboardContainer,
+  BotsContainer,
+  BotCard,
+} from './bots-dashboard.styles';
 
 const BotsDashboard = ({ currentBots }) => (
-  <div className="bots-dash">
+  <BotsDashboardContainer>
     <h2>Bots</h2>
-    <div className="bots-container">
+    <BotsContainer>
       {currentBots.map((singleBot) => {
         const { id, username, phone } = singleBot;
         const { zipcode, city } = singleBot.address;
         const { name, catchPhrase } = singleBot.company;
 
         return (
-          <div className="bot-card" key={id}>
+          <BotCard key={id}>
             <SingleBot
               id={id}
               manufacturer={name}
@@ -22,12 +27,13 @@ const BotsDashboard = ({ currentBots }) => (
               serial={phone}
               location={city}
               specialty={catchPhrase}
+              botOnDashboard
             />
-          </div>
+          </BotCard>
         );
       })}
-    </div>
-  </div>
+    </BotsContainer>
+  </BotsDashboardContainer>
 );
 
 BotsDashboard.propTypes = {

@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CustomButton from '../../components/custom-button/custom-button.component';
-import './tasks-page.style.scss';
+
+import {
+  TasksPageContainer,
+  Form,
+  TasksEditContainer,
+} from './tasks-page.style';
 
 class TasksPage extends React.Component {
   constructor(props) {
@@ -31,15 +36,15 @@ class TasksPage extends React.Component {
     const { task } = this.state;
 
     return (
-      <div className="tasks-page">
+      <TasksPageContainer>
         <h1>Tasks</h1>
         <p>
           Define the tasks that the bots should accomplish to prevent the
           humanity's doom.
         </p>
 
-        <div className="tasks-edit">
-          <form onSubmit={this.submitForm}>
+        <TasksEditContainer>
+          <Form onSubmit={this.submitForm}>
             <input
               type="text"
               name="task"
@@ -47,7 +52,7 @@ class TasksPage extends React.Component {
               onChange={this.handleChange}
             />
             <CustomButton type="submit">Add Task</CustomButton>
-          </form>
+          </Form>
           <ul>
             {currentTasks.map((singleTask, index) => (
               <li key={index}>
@@ -64,8 +69,8 @@ class TasksPage extends React.Component {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
+        </TasksEditContainer>
+      </TasksPageContainer>
     );
   }
 }

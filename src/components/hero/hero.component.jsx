@@ -2,11 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CustomButton from '../custom-button/custom-button.component';
-import './hero.styles.scss';
-import './percentage-circle.styles.scss';
+import PercentageCircle from '../percentage-circle/percentage-circle.component';
+
+import {
+  HeroContainer,
+  HeroButtonsContainer,
+  HeroButtons,
+  SuccessDisplayContainer,
+} from './hero.styles';
 
 const Hero = ({ success }) => (
-  <div className="hero">
+  <HeroContainer>
     <h1>The Robot Revolution Is Coming</h1>
     <p>
       We all know that at some point in the future the AI will get so advanced
@@ -18,35 +24,25 @@ const Hero = ({ success }) => (
       squad of good bots and list the tasks that they should accomplish to avoid
       the human extinction. This task force is called Alpha Bots!
     </p>
-    <div className="buttons-container">
-      <div className="hero-buttons">
+    <HeroButtonsContainer>
+      <HeroButtons>
         <Link to="/tasks">
           <CustomButton big>Manage Tasks 📝</CustomButton>
         </Link>
         <Link to="/robots">
           <CustomButton big>Manage Bots 🤖</CustomButton>
         </Link>
-      </div>
-    </div>
+      </HeroButtons>
+    </HeroButtonsContainer>
 
-    <div className="success-display">
+    <SuccessDisplayContainer>
       <div>
         {' '}
         <h3>Likelihood to Succeed</h3>
       </div>
-      <div className={`pie-wrapper progress-${success}`}>
-        <span className="label">
-          {success}
-          <span className="smaller">%</span>
-        </span>
-        <div className="pie">
-          <div className="left-side half-circle" />
-          <div className="right-side half-circle" />
-        </div>
-        <div className="shadow" />
-      </div>
-    </div>
-  </div>
+      <PercentageCircle success={success} />
+    </SuccessDisplayContainer>
+  </HeroContainer>
 );
 
 Hero.propTypes = {

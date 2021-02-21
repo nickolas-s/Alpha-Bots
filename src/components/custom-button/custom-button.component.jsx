@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './custom-button.styles.scss';
+
+import { Button } from './custom-button.styles';
 
 const CustomButton = ({ children, type, big, onClick }) => (
-  <button
-    className={`${big ? 'btn-bg' : ''} custom-button`}
+  <Button
+    className={`${big ? 'btn-bg' : ''}`}
     type={type === 'submit' ? 'submit' : 'button'}
     onClick={onClick}
   >
     {children}
-  </button>
+  </Button>
 );
 
 CustomButton.propTypes = {

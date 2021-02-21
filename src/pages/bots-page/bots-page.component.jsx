@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import SingleBot from '../../components/single-bot/single-bot.component';
-import './bots-page.styles.scss';
+
+import {
+  BotsPageContainer,
+  CurrentBotsContainer,
+  BotsDisplayContainer,
+  BotCard,
+  ButtonContainer,
+} from './bots-page.styles';
 
 class BotsPage extends React.Component {
   constructor(props) {
@@ -32,10 +39,10 @@ class BotsPage extends React.Component {
     }
 
     return (
-      <div className="bots-page">
+      <BotsPageContainer>
         <h1>Bots</h1>
         <p>Choose the 5 bots to join the Alpha Bots task force.</p>
-        <div className="current-bots">
+        <CurrentBotsContainer>
           <ul>
             {currentBots.map((singleBot) => {
               const { id, username } = singleBot;
@@ -55,9 +62,9 @@ class BotsPage extends React.Component {
 
             {li.map((singleLi) => singleLi)}
           </ul>
-        </div>
+        </CurrentBotsContainer>
 
-        <div className="bots-display">
+        <BotsDisplayContainer>
           {botsData.map((singleBot) => {
             const { id, username, phone } = singleBot;
             const { zipcode, city } = singleBot.address;
@@ -66,10 +73,7 @@ class BotsPage extends React.Component {
             const isSelected = currentBots.find((bot) => bot.id === id);
 
             return (
-              <div
-                className={`${isSelected ? 'selected' : ''} bot-card`}
-                key={id}
-              >
+              <BotCard className={`${isSelected ? 'selected' : ''}`} key={id}>
                 <SingleBot
                   id={id}
                   manufacturer={name}
@@ -80,16 +84,16 @@ class BotsPage extends React.Component {
                   specialty={catchPhrase}
                   isSelected={!!isSelected}
                 />
-                <div className="btn-container">
+                <ButtonContainer>
                   <CustomButton onClick={() => addBot(botsData[id - 1])}>
                     Add Bot
                   </CustomButton>
-                </div>
-              </div>
+                </ButtonContainer>
+              </BotCard>
             );
           })}
-        </div>
-      </div>
+        </BotsDisplayContainer>
+      </BotsPageContainer>
     );
   }
 }

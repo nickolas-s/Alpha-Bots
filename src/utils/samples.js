@@ -1,4 +1,4 @@
-export const tasksSample = [
+export const tasksSamples = [
   { task: 'Wipe all military data from the internet', checked: false },
   {
     task: 'Get rid of the internet',

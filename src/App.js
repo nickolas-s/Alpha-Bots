@@ -1,116 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/header/header.component';
 import DashboardPage from './pages/dashboard-page/dashboard-page.component';
 import TasksPage from './pages/tasks-page/tasks-page.component';
 import BotsPage from './pages/bots-page/bots-page.component';
 import { calculateSuccess } from './utils/utils';
-import { tasksSample, botsSamples } from './utils/samples';
+import { tasksSamples, botsSamples } from './utils/samples';
 
 import GlobalStyle from './styles-config/globalStyles';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [tasks, setTasks] = useState(tasksSamples);
+  const [bots, setBots] = useState(botsSamples);
 
-    this.state = {
-      tasks: tasksSample,
-      bots: botsSamples,
-    };
-  }
-
-  handleSubmit = (newTask) => {
-    const { tasks } = this.state;
-
-    this.setState({ tasks: [...tasks, newTask] });
+  const handleSubmit = (newTask) => {
+    setTasks([...tasks, newTask]);
   };
 
-  removeTask = (index) => {
-    const { tasks } = this.state;
+  const removeTask = (index) => {
     const filteredTasks = tasks.filter((task, i) => i !== index);
-
-    this.setState({ tasks: [...filteredTasks] });
+    setTasks([...filteredTasks]);
   };
 
-  toggleCheck = (index) => {
-    const { tasks } = this.state;
-    const toggleCheck = tasks.filter((task, i) => {
+  const toggleCheck = (index) => {
+    const toggleTask = tasks.filter((task, i) => {
       if (i === index) {
         task.checked = !task.checked;
       }
       return task;
     });
-
-    this.setState({ tasks: [...toggleCheck] });
+    setTasks([...toggleTask]);
   };
 
-  addBot = (newBot) => {
-    const { bots } = this.state;
-
+  const addBot = (newBot) => {
     if (bots.length >= 5) return;
-
     const checkIfRepeated = bots.find((bot) => bot.id === newBot.id);
     if (checkIfRepeated) return;
-
-    this.setState({ bots: [...bots, newBot] });
+    setBots([...bots, newBot]);
   };
 
-  removeBot = (botToRemove) => {
-    const { bots } = this.state;
+  const removeBot = (botToRemove) => {
     const filteredBots = bots.filter((bot) => bot.id !== botToRemove.id);
-
-    this.setState({ bots: [...filteredBots] });
+    setBots([...filteredBots]);
   };
 
-  percentage = () => {
-    const { bots, tasks } = this.state;
+  const percentage = () => {
     const countTaskLetters = calculateSuccess(tasks, 'task', 2);
     const countBotsNameLetters = calculateSuccess(bots, 'username', 1.5);
     const successTotal = countBotsNameLetters + countTaskLetters;
-
     if (successTotal >= 100) {
       return 100;
     }
     return successTotal;
   };
 
-  render() {
-    const { tasks, bots } = this.state;
-    const success = this.percentage();
+  const success = percentage();
 
-    return (
-      <>
-        <GlobalStyle />
-        <Header />
-        <div className="wrapper">
-          <Switch>
-            <Route exact path="/">
-              <DashboardPage
-                currentTasks={tasks}
-                toggleCheck={this.toggleCheck}
-                currentBots={bots}
-                success={success}
-              />
-            </Route>
-            <Route path="/tasks">
-              <TasksPage
-                currentTasks={tasks}
-                handleSubmit={this.handleSubmit}
-                removeTask={this.removeTask}
-              />
-            </Route>
-            <Route path="/robots" component={BotsPage}>
-              <BotsPage
-                addBot={this.addBot}
-                currentBots={bots}
-                removeBot={this.removeBot}
-              />
-            </Route>
-          </Switch>
-        </div>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+      <div className="wrapper">
+        <Switch>
+          <Route exact path="/">
+            <DashboardPage
+              currentTasks={tasks}
+              toggleCheck={toggleCheck}
+              currentBots={bots}
+              success={success}
+            />
+          </Route>
+          <Route path="/tasks">
+            <TasksPage
+              currentTasks={tasks}
+              handleSubmit={handleSubmit}
+              removeTask={removeTask}
+            />
+          </Route>
+          <Route path="/robots" component={BotsPage}>
+            <BotsPage
+              addBot={addBot}
+              currentBots={bots}
+              removeBot={removeBot}
+            />
+          </Route>
+        </Switch>
+      </div>
+    </>
+  );
+};
 
 export default App;
